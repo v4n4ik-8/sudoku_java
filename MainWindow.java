@@ -111,7 +111,11 @@ public class MainWindow {
         buttonPanel.add(restartButton);
         buttonPanel.add(difficultyBox);
 
-        restartButton.addActionListener(e -> restartGame());
+        restartButton.addActionListener(e -> {
+            currentDifficulty = (String) difficultyBox.getSelectedItem();
+            restartGame();
+            startNewGame(currentDifficulty);
+        });
         difficultyBox.addActionListener(e -> {
             currentDifficulty = (String) difficultyBox.getSelectedItem();
             restartGame();
