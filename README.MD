@@ -6,5 +6,5 @@ git clone https://github.com/v4n4ik-8/sudoku_java.git
 ```
 ___
 ### Для не профи
-Тут короче будет `exe-файл`, но я пока не скомпилировал, поэтому пока что не будет
+**[Скачать](https://github.com/v4n4ik-8/sudoku_java/releases/download/v1.0/Sudoku.jar)**EA
 
