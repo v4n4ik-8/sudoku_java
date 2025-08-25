@@ -2,7 +2,7 @@
 ## Установка
 ### Для профи
 ```bash
-git clone https://github.com/v4n4ik-8/sudoku_java.git
+git clone --branch arab_skull https://github.com/v4n4ik-8/sudoku_java.git
 ```
 ___
 ### Для не профи
