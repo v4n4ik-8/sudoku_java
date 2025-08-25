@@ -1,5 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -15,6 +22,19 @@ public class MainWindow {
     private String currentDifficulty = "Easy";
 
     private boolean[][] fixed = new boolean[9][9];
+
+    private void playSound(String filePath) {
+          try {
+                File soundFile = new File(filePath);
+                AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioStream);
+                clip.start();
+          } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                e.printStackTrace();
+          }
+    }
+    
 
     public MainWindow() {
         window = new JFrame("Судоку");
@@ -71,9 +91,11 @@ public class MainWindow {
                     if (ok) {
                         nums[row][col] = value;
                         cell.setForeground(Color.BLACK);
+                        playSound("gun.wav"); 
                     } else {
                         JOptionPane.showMessageDialog(window, "Нельзя ставить это число сюда!");
                         cell.setText("");
+                        playSound("wrong.wav"); 
                     }
                 };
 
